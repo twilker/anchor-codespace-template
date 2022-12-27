@@ -18,6 +18,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # nvm environment variables
 ENV NVM_DIR /usr/local/nvm
+RUN mkdir -p $NVM_DIR
 
 # install nvm
 # https://github.com/creationix/nvm#install-script
