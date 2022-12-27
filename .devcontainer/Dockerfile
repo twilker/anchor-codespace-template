@@ -30,6 +30,8 @@ RUN source $NVM_DIR/nvm.sh \
     && corepack enable \
     && corepack prepare yarn@stable --activate
 
+ENV PATH="$(nvm which current):$PATH"
+
 # confirm installation
 RUN node -v
 RUN npm -v
