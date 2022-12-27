@@ -1,5 +1,5 @@
 {
-	"name": "Codespaces Rust Starter",
+	"name": "Codespaces Anchor (Solana) Starter",
 	"extensions": [
 		"cschleiden.vscode-github-actions",
 		"ms-vsliveshare.vsliveshare",
@@ -10,9 +10,13 @@
 	"dockerFile": "Dockerfile",
 	"settings": {
 		"editor.formatOnSave": true,
-		"terminal.integrated.shell.linux": "/usr/bin/zsh",
+		"terminal.integrated.profiles.linux": {
+			"Shell": {
+			  "path": "/usr/bin/zsh"
+			}
+		},
+		"terminal.integrated.defaultProfile.linux": "Shell",
 		"files.exclude": {
-			"**/CODE_OF_CONDUCT.md": true,
 			"**/LICENSE": true
 		}
 	}

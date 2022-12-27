@@ -16,11 +16,8 @@ apt-get install -y \
 
 ## Install rustup and common components
 curl https://sh.rustup.rs -sSf | sh -s -- -y 
-rustup install nightly
 rustup component add rustfmt
-rustup component add rustfmt --toolchain nightly
-rustup component add clippy 
-rustup component add clippy --toolchain nightly
+rustup component add clippy
 
 cargo install cargo-expand
 cargo install cargo-edit
@@ -33,6 +30,9 @@ sed -i -e "s/\/root\/.oh-my-zsh/\/home\/$USERNAME\/.oh-my-zsh/g" /home/$USERNAME
 chown -R $USER_UID:$USER_GID /home/$USERNAME/.oh-my-zsh /home/$USERNAME/.zshrc
 
 # install solana
-sh -c "$(curl -sSfL https://release.solana.com/v1.8.2/install)"
+sh -c "$(curl -sSfL https://release.solana.com/v1.14.11/install)"
+echo 'PATH=$PATH:/$PATH:/opt/solana-1.14.11/bin' >> ~/.bashrc
 
-echo 'PATH=$PATH:/$PATH:/opt/solana-1.8.2/bin' >> ~/.bashrc
+# setup solana cli
+solana-keygen new
+solana airdrop 2
