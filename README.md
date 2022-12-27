@@ -42,7 +42,7 @@ Other than installing solana V1.8.2:
 
 ### Operating System
 
-- [Ubuntu 18.04](https://releases.ubuntu.com/18.04.4/): The 18.04 LTS version of Ubuntu.
+- [Ubuntu 22.04](https://releases.ubuntu.com/22.04.1/): The 22.04 LTS version of Ubuntu.
 
 ## Usage
 
