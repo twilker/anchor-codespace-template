@@ -33,3 +33,7 @@ RUN source $NVM_DIR/nvm.sh \
 RUN node -v
 RUN npm -v
 RUN yarn -v
+
+#setup solana cli
+RUN solana-keygen new \
+    && solana airdrop 2
