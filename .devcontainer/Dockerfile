@@ -23,8 +23,3 @@ RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - \
 RUN node -v
 RUN npm -v
 RUN yarn -v
-
-#setup solana cli
-RUN solana-keygen new \
-    && solana config set --url https://api.devnet.solana.com \
-    && solana airdrop 2
