@@ -13,24 +13,11 @@ RUN cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
     && avm install latest \
     && avm use latest
 
-# replace shell with bash so we can source files
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
-# nvm environment variables
-ENV NVM_DIR /usr/local/nvm
-RUN mkdir -p $NVM_DIR
-
-# install nvm
-# https://github.com/creationix/nvm#install-script
-RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
-
 # install node, npm and yarn using nvm
-RUN source $NVM_DIR/nvm.sh \
-    && nvm install --lts \
+RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - \
+    && apt-get install -y nodejs \
     && corepack enable \
     && corepack prepare yarn@stable --activate
-
-ENV PATH="$(nvm which current):$PATH"
 
 # confirm installation
 RUN node -v
@@ -39,4 +26,5 @@ RUN yarn -v
 
 #setup solana cli
 RUN solana-keygen new \
+    && solana config set --url https://api.devnet.solana.com \
     && solana airdrop 2
