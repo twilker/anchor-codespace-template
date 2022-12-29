@@ -1,7 +1,5 @@
 #!/bin/bash
 
-trap 'init-anchor-project.sh' EXIT
-
 # Retries a command on failure.
 # $1 - the max number of attempts
 # $2... - the command to run
@@ -88,3 +86,6 @@ if [ $workspace_init = true ]; then
     #compile anchor for first time so that the test srcipt finds idl
     anchor build
 fi
+
+#self destruction
+rm "$BASH_SOURCE"
