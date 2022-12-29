@@ -14,6 +14,9 @@ apt-get install -y \
   pkg-config \
   libudev-dev
 
+## Install OpenSSL 1.1 (needed for rust compiler)
+wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb && dpkg -i libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb
+
 ## Install rustup and common components
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
