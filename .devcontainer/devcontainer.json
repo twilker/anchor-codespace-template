@@ -5,14 +5,15 @@
 		"ms-vsliveshare.vsliveshare",
 		"matklad.rust-analyzer",
 		"serayuzgur.crates",
-		"vadimcn.vscode-lldb"
+		"vadimcn.vscode-lldb",
+		"yzhang.markdown-all-in-one"
 	],
 	"dockerFile": "Dockerfile",
 	"settings": {
 		"editor.formatOnSave": true,
 		"terminal.integrated.profiles.linux": {
 			"Shell": {
-			  "path": "/usr/bin/zsh"
+				"path": "/usr/bin/zsh"
 			}
 		},
 		"terminal.integrated.defaultProfile.linux": "Shell",

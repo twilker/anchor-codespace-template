@@ -20,7 +20,7 @@ retry() {
     done
 }
 
-VALID_ARGS=$(getopt -o n: --long name:,no-solana-init,no-workspace-init -- "$@")
+VALID_ARGS=$(getopt -o n:,h --long name:,no-solana-init,no-workspace-init,help -- "$@")
 if [[ $? -ne 0 ]]; then
     exit 1;
 fi
@@ -34,6 +34,29 @@ while [ : ]; do
     -n | --name)
         name=$2
         shift 2
+        ;;
+    -h | --help)
+        echo 'init-anchor-project
+Initialize a new anchor project.
+
+This script will initialize a new solana wallet and airdrop 2 SOL. Afterward it
+initializes an anchor project in the root directory. Once completed it creates
+a script that initializes a new codespace by building the project and
+installing dependencies. After executing it, this script will self-destruct.
+
+USAGE:
+    init-anchor-project [FLAGS] [OPTIONS]
+
+FLAGS:
+    -h, --help              Prints help information
+    --no-solana-init        Do not initialize a new solana wallet
+    --no-workspace-init     Do not initialize the workspace at the end
+                            ! the init-workspace script is still created !
+
+OPTIONS
+    -n, --name              Set the anchor project name [default: '"${name}"']
+'
+        exit 
         ;;
     --no-solana-init)
         solana_init=false

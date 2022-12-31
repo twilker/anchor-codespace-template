@@ -2,6 +2,12 @@
 
 This project is a generic starter for developers to use in Codespaces that includes basic system tools and extensions.
 
+## Usage
+
+To use this codespace template simply create a new repository from this repository. In the new repository you have to wait until the codespace prebuild action is executed (takes around 15-20 minutes). Afterward you can access the prebuild codespace and optionally execute:
+`chmod +x ./init-anchor-project.sh && ./init-anchor-project.sh`
+This will initialize a new anchor project in the root directory of the new repository.
+
 ## What's Included
 
 This is a basic environment that should be ready to expand upon to build a day-to-day development envrionment for Solana. It comes with the following software choices:
@@ -43,6 +49,4 @@ Other than installing solana V1.8.2:
 ### Operating System
 
 - [Ubuntu 22.04](https://releases.ubuntu.com/22.04.1/): The 22.04 LTS version of Ubuntu.
-
-## Usage
 
