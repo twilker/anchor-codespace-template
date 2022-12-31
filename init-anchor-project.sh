@@ -74,18 +74,26 @@ rmdir $name
 #edit gitignore to ignore .yarn folder
 echo ".yarn" >> .gitignore
 
-if [ $workspace_init = true ]; then
-    echo 
-    echo Initialize workspace with initial builds
-    echo ========================================
-    echo 
-    #npm is needed for VSCode intellisense
-    npm i
-    #run yarn install afterwards links yarn and npm (npm must not be run again afterward)
-    yarn install
-    #compile anchor for first time so that the test srcipt finds idl
-    anchor build
-fi
+#Create init workspace script
+echo '#!/bin/bash
+
+echo 
+echo Initialize workspace with initial builds
+echo ========================================
+echo 
+#npm is needed for VSCode intellisense
+npm i
+#run yarn install afterwards links yarn and npm (npm must not be run again afterward)
+yarn install
+#compile anchor for first time so that the test srcipt finds idl
+anchor build' > ./init-workspace.sh
+
+chmod +x ./init-workspace.sh
+git add ./init-workspace.sh
 
 #self destruction
 rm "$BASH_SOURCE"
+
+if [ $workspace_init = true ]; then
+    ./init-workspace.sh
+fi
